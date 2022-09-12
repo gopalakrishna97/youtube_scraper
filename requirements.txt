@@ -1,74 +1,77 @@
-
-
-beautifulsoup4
-boto3
-botocore
-Bottleneck
-brotlipy==0.7.0
-certifi
-cffi
-charset-normalizer
-click==8.1.3
-colorama
-cors==1.0.1
-cryptography
-dnspython==2.2.1
-docutils
-filelock==3.8.0
-Flask==2.2.2
-Flask-Cors==3.0.10
-future==0.18.2
-gevent==21.12.0
-greenlet
-html5lib==1.1
-HTMLParser==0.0.2
-idna
-imagesize
-itsdangerous==2.1.2
-Jinja2
-jmespath
-lxml==4.9.1
-MarkupSafe
-mkl-fft==1.3.1
-mkl-random
-mkl-service==2.4.0
-mysql-connector-python==8.0.30
-numexpr
-numpy==1.23.3
-numpydoc
-packaging
-pandas==1.4.4
-protobuf==3.20.1
-pycparser
-Pygments
-pymongo==4.2.0
-PyMySQL==1.0.2
-pyOpenSSL
-pyparsing
-PySocks
-python-dateutil
-pytube==12.1.0
-pytz6
-requests
-requests-file==1.5.1
-s3transfer
-selenium
-six
-snowballstemmer
-soupsieve
-Sphinx
-sphinxcontrib-applehelp
-sphinxcontrib-devhelp
-sphinxcontrib-htmlhelp
-sphinxcontrib-jsmath
-sphinxcontrib-qthelp
-sphinxcontrib-serializinghtml
-SQLAlchemy
-tldextract==3.3.1
-urllib3
-webencodings==0.5.1
-Werkzeug==2.2.2
-win-inet-pton
-wincertstore==0.2
-zope.event==4.5.0
-zope.interface==5.4.0
+Bottleneck ==	1.3.5
+Flask	== 2.2.2
+Flask-Cors ==	3.0.10
+HTMLParser ==	0.0.2
+Jinja2	 == 3.0.3
+MarkupSafe ==	2.1.1
+PyMySQL ==	1.0.2
+PySocks ==	1.7.1
+Pygments ==	2.11.2
+SQLAlchemy ==	1.4.39
+Sphinx	 == 5.0.2
+Werkzeug ==	2.2.2
+alabaster ==	0.7.12
+argparse	== 1.4.0
+beautifulsoup4==	4.11.1
+boto3==	1.24.28
+botocore==	1.27.28
+brotlipy==	0.7.0
+certifi==	2022.6.15
+cffi==	1.15.1
+charset-normalizer==	2.0.4
+click==	8.1.3
+colorama ==	0.4.5
+cors==	1.0.1
+cryptography ==	37.0.1
+dnspython ==	2.2.1
+docutils ==	0.18.1
+filelock ==	3.8.0
+future ==	0.18.2
+gevent	== 21.12.0
+greenlet	== 1.1.1
+html5lib ==1.1
+idna	== 3.3
+imagesize ==	1.4.1
+itsdangerous ==	2.1.2
+jmespath ==	0.10.0
+lxml ==	4.9.1
+mkl-fft ==	1.3.1
+mkl-random ==	1.2.2
+mkl-service ==	2.4.0
+mysql-connector-python ==	8.0.30
+numexpr ==	2.8.3
+numpy	 ==1.23.3
+numpydoc ==	1.4.0
+packaging ==	21.3
+pandas ==	1.4.4
+pip	 ==22.1.2
+protobuf ==	3.20.1
+pyOpenSSL ==	22.0.0
+pycparser ==	2.21
+pymongo	 == 4.2.0
+pyparsing ==	3.0.9
+python-dateutil ==	2.8.2
+pytube ==	12.1.0
+pytz	 == 2022.1
+requests ==	2.28.1
+requests-file ==	1.5.1
+s3transfer ==	0.6.0
+selenium ==	3.141.0
+setuptools ==	63.4.1
+six ==	1.16.0
+snowballstemmer ==	2.2.0
+soupsieve ==	2.3.1
+sphinxcontrib-applehelp ==	1.0.2
+sphinxcontrib-devhelp ==	1.0.2
+sphinxcontrib-htmlhelp ==	2.0.0
+sphinxcontrib-jsmath ==	1.0.1
+sphinxcontrib-qthelp	== 1.0.3
+sphinxcontrib-serializinghtml==	1.1.5
+tldextract ==	3.3.1
+urllib3 ==	1.26.11
+webencodings == 0.5.1
+wheel==0.37.1
+win-inet-pton  ==	1.1.0
+wincertstore  ==	0.2
+zope.event  ==	4.5.0
+zope.interface  ==	5.4.0

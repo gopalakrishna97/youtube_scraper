@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+   <div class="header"> DATA OF YOUTUBE CHANNEL</div>
+
+   <table cellspacing="0">
+      <tr>
+         <th>S.No</th>
+         <th>channel_name</th>
+         <th>video_link</th>
+         <th>s3_video_link</th>
+         <th width="230">title</th>
+          <th>likes</th>
+          <th>comments</th>
+          <th>thumbnail_link</th>
+      </tr>
+         {% for review in reviews %}
+      <tr>
+          <td>{{scraped_data['count']}}</td>
+         <td>{{scraped_data['channel_name']}}</td>
+         <td>{{scraped_data['video_link']}}</td>
+         <td>{{scraped_data['s3_video_link']}}</td>
+         <td>{{scraped_data['title']}} </td>
+          <td>{{scraped_data['likes']}} </td>
+          <td>{{scraped_data['comments']}} </td>
+          <td>{{scraped_data['thumbnail_link']}} </td>
+       {% endfor %}
+   </table>
+</div>
+
+
+
+</body>
+
+</html>

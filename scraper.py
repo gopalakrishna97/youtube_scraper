@@ -170,7 +170,7 @@ def index():
 
             def get_comments():
                 try:
-                    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                    driver.execute_script("window.scrollBy(0,1000)")
                     comments_Authors = soup.find_all('h3', class_="style-scope ytd-comment-renderer")
                     comment_texts = soup.find_all('yt-formatted-string', class_="style-scope ytd-comment-renderer")
                 except:
@@ -200,7 +200,7 @@ def index():
                 print(e)
             count += 1
 
-        return render_template('results_page.html', scraped_data=scraped_data[0:(len(scraped_data)-1)])
+        return render_template('result_page.html', scraped_data=scraped_data[0:(len(scraped_data)-1)])
 
 
 

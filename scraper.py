@@ -83,8 +83,10 @@ def index():
             # scrolled_page = 0
             time.sleep(2)
             driver.execute_script("window.scrollBy(0,400)")
-            time.sleep(2)
+            time.sleep(5)
 
+            driver.execute_script("window.scrollBy(0,2500)")
+            time.sleep(5)
             html = driver.page_source.encode('utf-8').strip()
             # response_page = requests.get(link).content
             soup = BeautifulSoup(html, 'html5lib')
@@ -170,7 +172,6 @@ def index():
 
             def get_comments():
                 try:
-                    driver.execute_script("window.scrollBy(0,1000)")
                     comments_Authors = soup.find_all('h3', class_="style-scope ytd-comment-renderer")
                     comment_texts = soup.find_all('yt-formatted-string', class_="style-scope ytd-comment-renderer")
                 except:

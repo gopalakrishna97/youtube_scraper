@@ -30,16 +30,16 @@
           <th>comments</th>
           <th>thumbnail_link</th>
       </tr>
-         {% for review in reviews %}
+         {% for data in scraped_data %}
       <tr>
-          <td>{{scraped_data['count']}}</td>
-         <td>{{scraped_data['channel_name']}}</td>
-         <td>{{scraped_data['video_link']}}</td>
-         <td>{{scraped_data['s3_video_link']}}</td>
-         <td>{{scraped_data['title']}} </td>
-          <td>{{scraped_data['likes']}} </td>
-          <td>{{scraped_data['comments']}} </td>
-          <td>{{scraped_data['thumbnail_link']}} </td>
+          <td>{{data['count']}}</td>
+         <td>{{data['channel_name']}}</td>
+         <td>{{data['video_link']}}</td>
+         <td>{{data['s3_video_link']}}</td>
+         <td>{{data['title']}} </td>
+          <td>{{data['likes']}} </td>
+          <td>{{data['comments']}} </td>
+          <td>{{data['thumbnail_link']}} </td>
        {% endfor %}
    </table>
 </div>

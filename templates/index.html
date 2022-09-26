@@ -10,12 +10,15 @@
 <div class="content">
     <h2>Please give youtube channel url </h2>
     <span>eg:https://www.youtube.com/user/krishnaik06</span>
+    <span>As it takes more time to scrape large amount of videos. so, try with 1 video first</span>
     <h1 style="text-align: center">Search</h1>
 
     <div class="form">
         <form action="/scrape" method="POST">
-            <input type="text" name="link" id="content">
-            <input type="text" name="videos-count">
+            <label for="content">Channel URL:</label><br>
+            <input type="text" name="link" id="content"><br>
+            <label for="count">No Of Videos:</label><br>
+            <input type="text" name="videos-count" id="count"><br>
             <input type="submit" value="Search">
         </form>
     </div>

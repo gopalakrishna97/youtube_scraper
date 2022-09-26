@@ -3,7 +3,7 @@ from flask_cors import CORS,cross_origin
 
 import os
 import time
-
+import base64
 import requests
 
 from bs4 import BeautifulSoup
@@ -67,7 +67,7 @@ def index():
         # extracting 50 unique video links
         links = set()
         start_number = 0
-        end_number = no_of_videos_user_requested
+        end_number = int(no_of_videos_user_requested)
         for video in videos[start_number:end_number]:
             link = video.get('href')
             # picking only full length video (NOT short videos)
@@ -128,6 +128,7 @@ def index():
                     video_id = video_link.split('=')
                     thumbnail_link = 'https://i.ytimg.com/vi/{}/maxresdefault.jpg'.format(video_id[-1])
                     thumbnail = requests.get(thumbnail_link).content
+                    data = base64.b64encode(thumbnail)
                     # thumbnail_links_list.append(thumbnail_link)
                     mongoDB_content['thumbnail'] = thumbnail
                     folder_path = os.path.join('./images', channel_name+"images")
@@ -138,7 +139,7 @@ def index():
                     f.write(thumbnail)
                     print('image saved successfully')
                     f.close()
-                    return thumbnail_link
+                    return {"thumbnail":data,"thumbnail_link":thumbnail_link}
                 except Exception as e:
                     print(e)
 
@@ -149,7 +150,6 @@ def index():
                     yt = YouTube(link)
                 except:
                     print("Connection Error for downloading video")
-
                 try:
                     folder_path = os.path.join("./images", channel_name+"_videos")
                     if not os.path.exists(folder_path):
@@ -187,13 +187,13 @@ def index():
 
 
 
-            thumbnail_link = get_thumbnail()
+            thumbnail_details = get_thumbnail()
             s3_video_link = get_video()
             get_comments()
 
-            mydict = {"count":count,"channel_name":channel_name,"video_link":video_link,"s3_video_link":s3_video_link,"title":title,"likes":likes,"comments":comments,"thumbnail_link":thumbnail_link}
+            mydict = {"count":count,"channel_name":channel_name,"video_link":video_link,"s3_video_link":s3_video_link,"title":title,"likes":likes,"comments":comments,"thumbnail_details":thumbnail_details}
             scraped_data.append(mydict)
-            cursor.execute("INSERT INTO dataset VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(count,channel_name,video_link,s3_video_link,title,likes,comments,thumbnail_link))
+            cursor.execute("INSERT INTO dataset VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(count,channel_name,video_link,s3_video_link,title,likes,comments,thumbnail_details["thumbnail_link"]))
             mydb.commit()
             #     inserting data to mongoDB
             try:
@@ -202,7 +202,7 @@ def index():
                 print(e)
             count += 1
 
-        return render_template('result_page.html', scraped_data=scraped_data[0:(len(scraped_data)-1)])
+        return render_template('result_page.html', scraped_data=scraped_data[0:])
 
 
 

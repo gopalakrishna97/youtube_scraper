@@ -32,6 +32,7 @@ def homePage():
 def index():
     if request.method == 'POST':
         url = request.form.get('link')
+        no_of_videos_user_requested = request.form.get('videos-count')
         # mysql connection
         mydb = conn.connect(host = "localhost", user = 'root', passwd = "gopal")
         cursor = mydb.cursor()
@@ -66,7 +67,7 @@ def index():
         # extracting 50 unique video links
         links = set()
         start_number = 0
-        end_number = 50
+        end_number = no_of_videos_user_requested
         for video in videos[start_number:end_number]:
             link = video.get('href')
             # picking only full length video (NOT short videos)

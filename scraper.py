@@ -34,7 +34,7 @@ def index():
         url = request.form.get('link')
         no_of_videos_user_requested = request.form.get('videos-count')
         # mysql connection
-        mydb = conn.connect(host = "localhost", user = 'root', passwd = "gopal")
+        mydb = conn.connect(host = "database-1.caeph8mrvx8o.ap-south-1.rds.amazonaws.com", user = 'admin', passwd = "gopal123")
         cursor = mydb.cursor()
         cursor.execute('create database IF NOT EXISTS youtube_data;')
         cursor.execute("USE youtube_data")

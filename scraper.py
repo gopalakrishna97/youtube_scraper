@@ -34,11 +34,11 @@ def index():
         url = request.form.get('link')
         no_of_videos_user_requested = request.form.get('videos-count')
         # mysql connection
-        mydb = conn.connect(host = "database-1.caeph8mrvx8o.ap-south-1.rds.amazonaws.com", user = 'admin', passwd = "gopal123")
-        cursor = mydb.cursor()
-        cursor.execute('create database IF NOT EXISTS youtube_data;')
-        cursor.execute("USE youtube_data")
-        cursor.execute("CREATE TABLE IF NOT EXISTS dataset(s_no int,channel_names varchar(20),video_links varchar(100),s3_videos varchar(100),titles varchar(100),likes varchar(10),no_of_comments varchar(20),thumbnail_links varchar(100))")
+        # mydb = conn.connect(host = "database-1.caeph8mrvx8o.ap-south-1.rds.amazonaws.com", user = 'admin', passwd = "gopal123")
+        # cursor = mydb.cursor()
+        # cursor.execute('create database IF NOT EXISTS youtube_data;')
+        # cursor.execute("USE youtube_data")
+        # cursor.execute("CREATE TABLE IF NOT EXISTS dataset(s_no int,channel_names varchar(20),video_links varchar(100),s3_videos varchar(100),titles varchar(100),likes varchar(10),no_of_comments varchar(20),thumbnail_links varchar(100))")
 
         s3 = boto3.client("s3", region_name='ap-south-1', aws_access_key_id=AWSAccessKeyId,
                                        aws_secret_access_key=AWSSecretKey)
@@ -193,8 +193,8 @@ def index():
 
             mydict = {"count":count,"channel_name":channel_name,"video_link":video_link,"s3_video_link":s3_video_link,"title":title,"likes":likes,"comments":comments,"thumbnail_details":thumbnail_details}
             scraped_data.append(mydict)
-            cursor.execute("INSERT INTO dataset VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(count,channel_name,video_link,s3_video_link,title,likes,comments,thumbnail_details["thumbnail_link"]))
-            mydb.commit()
+            # cursor.execute("INSERT INTO dataset VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(count,channel_name,video_link,s3_video_link,title,likes,comments,thumbnail_details["thumbnail_link"]))
+            # mydb.commit()
             #     inserting data to mongoDB
             try:
                 youtube_data_collection.insert_one(mongoDB_content)
